@@ -4,6 +4,7 @@ int minimum(int arr[], int size, int sumtotal, int sumcal)
 {
     if (size == 0)
     {
+           //return abs(sumtotal-sumcal);
         return abs((sumtotal-sumcal)-sumcal);
     }
     return min(minimum(arr,size-1,sumtotal,sumcal + arr[size-1]),minimum(arr,size-1,sumtotal,sumcal));
@@ -20,7 +21,7 @@ int findminimum(int arr[], int size)
 }
 int main()
 {
-    int arr[] = {1,6,11,4,6,4};
+    int arr[] = {9,6,11,4,6,4};
     int size = sizeof(arr) / sizeof(arr[0]);
     cout << findminimum(arr, size);
     return 0;
