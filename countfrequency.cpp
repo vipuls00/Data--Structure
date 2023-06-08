@@ -2,8 +2,8 @@
 #include <unordered_map>
 #include <map>
 using namespace std;
-void countfreq(string arr,int size){
- //  void countfreq(int* arr,int size){
+ void countfreq(string arr,int size){
+ // void countfreq(int* arr,int size){
    unordered_map <int,int> mp;
     for (int i = 0; i < size; i++)
     {
@@ -26,3 +26,19 @@ int main(){
        countfreq(str,n);
     return 0;
 }
+// void countfreq(int arr[], int n){
+//     unordered_map <int,int> mp;
+//     for (int i = 0; i < n; i++)
+//     {
+//         mp[arr[i]]++;
+//     }
+//     for(auto x : arr){
+//         if (mp[x] != 0)
+//         {
+//             cout<<mp[x];
+//             mp[x] = 0;
+//         }
+        
+//     }
+
+// }

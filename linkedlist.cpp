@@ -1,5 +1,6 @@
 
 #include <iostream>
+#include <unordered_map>
 using namespace std;
 class Node
 {
@@ -59,6 +60,23 @@ void insertionatopos(Node *&head, int data, Node *&tail, int pos)
     nodetoinsert->next = temp->next;
     temp->next = nodetoinsert;
 }
+bool detectloop(Node *head){
+    Node *temp = head;
+    unordered_map<Node*,bool> visited;
+    while (temp != NULL)
+    {
+        if (visited[temp] == 1)
+        {
+            return true;
+        }
+        else{
+             visited[temp]=true;
+            temp= temp->next;
+        }
+        
+    }
+    return false;
+}
 
 void deletenode(Node *&head, int pos)
 {
@@ -110,8 +128,36 @@ int main()
     // print(head);
     insertionatopos(head, 13, tail, 4);
     //  insertionatopos(head, 9, 1);
-    print(head);
-    deletenode(head, 1);
+    // print(head);
+    // deletenode(head, 1);
+  cout<<detectloop(head);
 
     return 0;
 }
+// class node{
+//     public:
+//     int data;
+//     node *next;
+//     node(int data){
+//         this->data = data;
+//         this->next =NULL;
+//     }
+//     void insertathead(node *head,int data){
+//         node *temp = new node(data);
+//         temp->next = head;
+//         head = temp;
+//     }
+//     void inserttail(node *head, int data,int curr,int pos){
+//         node *temp = head;
+//         node *nodetoinsert = new node(data);
+//         while (curr < pos -1)
+//         {
+//             temp = temp->next;
+//         }
+//         nodetoinsert->next = temp->next;
+//         temp->next= nodetoinsert;
+
+        
+        
+//     }
+// }

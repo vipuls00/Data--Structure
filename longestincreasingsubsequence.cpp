@@ -17,19 +17,24 @@ int solvelis1(int arr[], int size, int current, int prev)
     return max(include, exclude);
 }
 
-int solvelis(int arr[], int size, int current, int prev)
+int solvelis(int arr[], int size, int current, int prev,vector <vector<int>> &dp)
 {
     if (current >= size)
     {
         return 0;
     }
     int include = 0;
+    if (dp[prev][current] != -1)
+    {
+       return dp[prev][current];
+    }
+    
     if (prev == -1 || arr[current] > arr[prev])
     {
-        include = 1 + solvelis(arr, size, current + 1, current);
+        include = 1 + solvelis(arr, size, current + 1, current,dp);
     }
-    int exclude = 0 + solvelis(arr, size, current + 1, prev);
-    return max(include, exclude);
+    int exclude = 0 + solvelis(arr, size, current + 1, prev,dp);
+    return dp[prev][current]= max(include, exclude);
 }
 int main()
 {
@@ -37,9 +42,10 @@ int main()
     int size = sizeof(arr) / sizeof(arr[0]);
     int current = 0;
     int prev = -1;
-    // vector <int> dp((size+1),-1);
+     vector <vector<int>> dp(size,vector<int>(size+1,-1));
 
-    int ans = solvelis(arr, size, current, prev);
+    int ans = solvelis(arr, size, current, prev,dp);
     cout << ans << " " << endl;
     return 0;
 }
+

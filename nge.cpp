@@ -28,3 +28,28 @@ int main(){
  
     return 0;
 }
+// #include <iostream>
+// using namespace std;
+// vector <long long> nge(vector<long long> arr,int n ){
+//     stack<int> st;
+//     vector <long long> ans;
+//     st.push(-1);
+//     for (int i = n; 0 <= i; i--)
+//     {
+//        while (st.top() < arr[i])
+//        {
+//       st.pop();
+//        }
+//        int element = st.top();
+//        ans.push_back(element);
+//        st.push(arr[i]);
+//       }
+//     return ans;
+
+// }
+// int main (){
+//     vector <long long> arr = {1,3,2,4};
+//     int n = arr.size();
+//     vector <long long> ans = nge(arr,n);
+//     return 0;
+// }
